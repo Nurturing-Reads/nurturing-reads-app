@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const dashboardScreen = ({ navigation }) => {
+const dashboardScreen = ({  }) => {
   return (
     <View>
-      <Text>This is Dashboar Screen</Text>
+      <Text>This is Dashboard</Text>
     </View>
   );
 };

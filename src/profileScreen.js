@@ -1,11 +1,15 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
+import LoginScreen from "./loginScreen";
 
-const profileScreen = () => {
-  return (
-    <View>
-      <Text>This is Profile Screen </Text>
-    </View>
-  );
+const profileScreen = ({signedIn = false}) => {
+  if (signedIn) {
+    return (
+      <View>
+        <Text>This is Profile Screen </Text>
+      </View>
+    );
+  } 
+  return <LoginScreen />;
 };
 export default profileScreen;
