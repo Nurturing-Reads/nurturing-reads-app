@@ -4,7 +4,7 @@ import React from "react";
 // Import Screens
 import DashboardScreen from "./dashboardScreen";
 import ProfileScreen from "./profileScreen";
-import AuthScreen from "./authScreen";
+
 
 const Nav = createBottomTabNavigator();
 
@@ -21,10 +21,6 @@ const HomeScreen = () => {
         component={DashboardScreen}
         title="Dashboard"
       />
-      <Nav.Screen 
-        name="Authentication"
-        component={AuthScreen}
-        />
     </Nav.Navigator>
   );
 };
