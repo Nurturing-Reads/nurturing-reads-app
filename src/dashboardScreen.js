@@ -1,12 +1,25 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import stylesheet from "./stylesheet";
+import { useNavigation } from "@react-navigation/native";
 
-const dashboardScreen = ({  }) => {
+const DashboardScreen = ({ userName = "John" }) => {
+  const navigation = useNavigation();
+  
   return (
-    <View>
-      <Text>This is Dashboard</Text>
-    </View>
+    <SafeAreaView>
+      <View style={stylesheet.screenHeader}>
+        <Text style={stylesheet.screenTitle}>Welcome, {userName}!</Text>
+      </View>
+      <View id="dashboard-body" style={stylesheet.dashboardBody}>
+        <View id="dashboard-nav" style={stylesheet.dashboardNav}>
+          <Text>Navigation</Text>
+        </View>
+        <View id="dashboard-content" style={stylesheet.dashboardContent}>
+          <Text>content</Text>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
-
-export default dashboardScreen;
+export default DashboardScreen;
