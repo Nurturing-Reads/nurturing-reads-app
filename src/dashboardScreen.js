@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
 import stylesheet from "./stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig";
+import { AuthContext } from "./authProvider";
 
 // Dashboard Screen
 const DashboardScreen = () => {
+  const {user, logout} = useContext(AuthContext);
   const navigation = useNavigation();
   const handleSignOut = async () => {
     try {
@@ -17,12 +19,13 @@ const DashboardScreen = () => {
     }
     console.log("Successfully signed out.")
   };
-  userInfo = auth.currentUser;
-  console.log(userInfo);
+
   return (
     <SafeAreaView>
       <View style={stylesheet.screenHeader}>
-        <Text style={stylesheet.screenTitle}>Welcome, {auth.currentUser.displayName}!</Text>
+        <Text 
+          style={stylesheet.screenTitle}>Welcome, {user ? user.email : "Guest"}!
+          </Text>
         <Button 
           onPress={() => {
             handleSignOut();

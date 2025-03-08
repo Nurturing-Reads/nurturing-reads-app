@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   View,
   Text,
@@ -14,6 +14,7 @@ import { auth } from "./firebaseConfig";
 import stylesheet from "./stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import DashboardScreen from "./dashboardScreen";
+import { AuthContext } from "./authProvider";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -21,15 +22,20 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [rememberLogin, setRemeberLogin] = useState(false);
-
+  const { setUser } = useContext(AuthContext);
+  
   const handleLogin = async () => {
     if (email === "" || password === "") {
       return false;
     } else {
       try {
-        await signInWithEmailAndPassword(auth, email, password);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        setUser(userCredential.user);
+        console.log(userCredential)
+        navigation.navigate('Dashboard');
       } catch (error) {
         console.log(error);
+        console.log("Invalid Email or password. Try Again.")
         return false;
       }
     }
@@ -47,7 +53,7 @@ const LoginScreen = () => {
           <Text style={{ marginRight: 5, marginBottom: 20, color: "grey" }}>
             Don't have and account?
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => {navigation.navigate("Signup")}}>
             <Text style={{ color: "#FFA500" }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
@@ -92,6 +98,7 @@ const LoginScreen = () => {
             onPress={() => {
               let loginSucess = handleLogin();
               if (loginSucess){
+              
                 navigation.navigate("Dashboard");
               } else {
                 setErrorMsg("Error for Logging in");
