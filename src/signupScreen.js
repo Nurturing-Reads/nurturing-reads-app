@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, SafeAreaView, Image } from "react-native";
 import stylesheet from "./misc/stylesheet";
 import FormField from "./components/FormField";
-import { borderColor } from "@mui/system";
+import PasswordInput from "./components/PasswordInput";
 
 const SignupScreen = () => {
   const [displayName, setName] = useState("");
@@ -32,20 +32,8 @@ const SignupScreen = () => {
           value={signupEmail}
           valueHandler={setEmail}
         />
-
-        <FormField 
-          fieldName={"Password"}
-          hint={"Your password"}
+        <PasswordInput 
           value={password}
-          valueHandler={setPassword}/>
-
-        <FormField 
-          fieldName={"Confirm Password"}
-          hint={"Re-enter your password"}
-
-          valueHandler={() => {
-            samePassword = confirmPassword()
-          }}
           />
       </View>
       <View style={stylesheet.loginCover}>

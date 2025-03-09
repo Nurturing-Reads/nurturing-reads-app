@@ -69,15 +69,16 @@ const stylesheet = StyleSheet.create({
     fontWeight: 'bold',
     margin: 10,
   },
-  passwordEntry: {
-    borderColor: "fff",
+  
+  textEntry: {
+    borderColor: "#ccc",
     borderRadius: 5,
     borderWidth: 1,
     margin: 10,
     padding: 10,
   },
-  textEntry: {
-    borderColor: "fff",
+  passwordEntry: {
+    borderColor: "#ccc",
     borderRadius: 5,
     borderWidth: 1,
     margin: 10,
@@ -89,7 +90,23 @@ const stylesheet = StyleSheet.create({
     paddingLeft: 5, 
     fontSize: 16, 
     fontWeight: 'bold'
-  }
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    margin: 10, 
+
+  },
+  input: {
+    flex: 1,
+    padding: 10,
+  },
+  icon: {
+    padding: 10,
+  },
 });
 
 export default stylesheet;
