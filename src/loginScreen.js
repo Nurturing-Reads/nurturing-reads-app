@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig";
-import stylesheet from "./stylesheet";
+import stylesheet from "./misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import DashboardScreen from "./dashboardScreen";
 import { AuthContext } from "./authProvider";
@@ -98,7 +98,6 @@ const LoginScreen = () => {
             onPress={() => {
               let loginSucess = handleLogin();
               if (loginSucess){
-              
                 navigation.navigate("Dashboard");
               } else {
                 setErrorMsg("Error for Logging in");

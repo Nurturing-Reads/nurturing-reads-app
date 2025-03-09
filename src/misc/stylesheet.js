@@ -83,6 +83,13 @@ const stylesheet = StyleSheet.create({
     margin: 10,
     padding: 10,
   },
+  fieldNameLabel: {
+    margin: 10, 
+    marginBottom: 3,
+    paddingLeft: 5, 
+    fontSize: 16, 
+    fontWeight: 'bold'
+  }
 });
 
 export default stylesheet;

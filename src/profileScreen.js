@@ -11,7 +11,6 @@ const Stack = createNativeStackNavigator();
 const ProfileScreen = ({ signedIn = false }) => {
   const initialScreen = (signedIn)? 'Dashboard Screen': 'Login Screen';
   return (
-    
     <Stack.Navigator 
       initialRouteName={initialScreen} >
       <Stack.Screen 
