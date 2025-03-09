@@ -20,7 +20,6 @@
  * @returns {JSX.Element} A password input field with a visibility toggle.
  */
 
-
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity} from 'react-native';
 import {MaterialCommunityIcons} from 'react-native-vector-icons';
