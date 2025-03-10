@@ -13,7 +13,6 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 import stylesheet from "./misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
-import DashboardScreen from "./dashboardScreen";
 import { AuthContext } from "./authProvider";
 
 const LoginScreen = () => {
