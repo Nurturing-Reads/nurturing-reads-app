@@ -1,5 +1,4 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useFonts } from "expo-font";
 import HomeScreen from "./src/homeScreen";
 import { AuthProvider } from "./src/authProvider";

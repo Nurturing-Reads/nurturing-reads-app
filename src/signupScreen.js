@@ -32,8 +32,10 @@ const SignupScreen = () => {
           value={signupEmail}
           valueHandler={setEmail}
         />
+
         <PasswordInput 
           value={password}
+          
           />
       </View>
       <View style={stylesheet.loginCover}>
