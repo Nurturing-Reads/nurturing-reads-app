@@ -8,12 +8,17 @@ const SignupScreen = () => {
   const [displayName, setName] = useState("");
   const [signupEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  var samePassword = false;
-  
+  const [checkPassword, setCheckPassword] = useState("");
+  const [pwdErrorMsg, setPwdErrorMsg] = useState("");
 
-  const confirmPassword = (pwEntered, password) => {
-    return (pwEntered === password);
+  const passwordMatched = (pw1 = password, pw2=checkPassword) => {
+    if (pw1 === pw2){
+      setPwdErrorMsg("");
+    } else {
+      setPwdErrorMsg("Inconssitent Password.")
+    }
   };
+
   return (
     <View style={stylesheet.loginScreenArea}>
       <View style={stylesheet.loginScreenCol}>
@@ -33,15 +38,32 @@ const SignupScreen = () => {
           valueHandler={setEmail}
         />
 
-        <PasswordInput 
+        <Text style={stylesheet.fieldNameLabel}>Password</Text>
+        <PasswordInput
           value={password}
-          
-          />
+          placeholder={"Password"}
+          onChangeText={(newPwd) => {
+            setPassword(newPwd);
+            passwordMatched();
+          }}
+        />
+
+        <PasswordInput
+          value={checkPassword}
+          placeholder={"Confirm Password"}
+          onChangeText={(newPwd) => {
+            setCheckPassword(newPwd);
+            passwordMatched();
+          }}
+        />
+        
+        
       </View>
       <View style={stylesheet.loginCover}>
-        <Image 
-          source={require('../assets/imgs/login-cover.jpg')}
-          style={stylesheet.loginCoverImage}/>
+        <Image
+          source={require("../assets/imgs/login-cover.jpg")}
+          style={stylesheet.loginCoverImage}
+        />
       </View>
     </View>
   );
