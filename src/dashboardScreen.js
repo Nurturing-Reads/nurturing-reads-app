@@ -102,7 +102,7 @@ const DrawerLayout = (props) => {
         }}
       >
         <Text style={stylesheet.drawerSubtitles}>Class Management</Text>
-        <TouchableOpacity style={{ margin: 10 }} onPress={}>
+        <TouchableOpacity style={{ margin: 10 }}>
           <Ionicons name="add" size={20} color="grey" />
         </TouchableOpacity>
       </View>
@@ -143,6 +143,8 @@ const DashboardScreen = () => {
         name="Child Wellbeing Management"
         component={WellbeingManagementScreen}
       />
+
+      <DashboardDrawer.Screen name="Story Reading Utilization" component={ReadingUtilizationScreen}/>
     </DashboardDrawer.Navigator>
   );
 };
