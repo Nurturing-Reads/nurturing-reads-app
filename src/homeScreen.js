@@ -7,7 +7,13 @@ import ProfileScreen from "./profileScreen";
 import DrawerScreen from "./drawerScreen";
 
 const Nav = createBottomTabNavigator();
-
+const AddClassScreen = () => {
+  return (
+    <View>
+      <Text>Add Class Screen</Text>
+    </View>
+  )
+};
 const HomeScreen = () => {
   return (
     <Nav.Navigator initialRouteName="Profile" screenOptions={{headerShown: false,}} >
@@ -25,6 +31,9 @@ const HomeScreen = () => {
         name="Drawer"
         component={DrawerScreen}
         title="Drawer Screen"/>
+      <Nav.Screen 
+        name="Add Class Screen"
+        component={AddClassScreen}/>
     </Nav.Navigator>
   );
 };

@@ -120,10 +120,7 @@ const LoginScreen = () => {
 
       {/* Image Cover */}
       <View 
-        style={{
-          ...stylesheet.loginCover, 
-          width: orientation === 'Potrait'? "0%" : "65%"
-        }} 
+        style={stylesheet.loginCover} 
         id="login-screen-cover">
         <Image
           source={require("../assets/imgs/login-cover.jpg")}

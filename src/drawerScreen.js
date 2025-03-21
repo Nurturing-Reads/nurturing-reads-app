@@ -60,7 +60,4 @@ const DrawerScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  
-})
 export default DrawerScreen;

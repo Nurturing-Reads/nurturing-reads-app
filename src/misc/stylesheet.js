@@ -107,6 +107,18 @@ const stylesheet = StyleSheet.create({
   icon: {
     padding: 10,
   },
+  drawerSubtitles: {
+    margin: 10, color: 'grey'
+  },
+  drawerItem: {
+    marginLeft: 10
+  },
+  drawerLogo: {
+            resizeMode: 'contain',
+            width: "80%",
+            alignSelf: 'left',
+            marginLeft: 10
+          }
 });
 
 export default stylesheet;
