@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Dimensions} from "react-native";
 
-const {width, height} = Dimensions.get("window");
 const stylesheet = StyleSheet.create({
   dashboardBody: {
     flex: 1,
@@ -46,7 +45,7 @@ const stylesheet = StyleSheet.create({
     // Temperory Placeholder properties
     // borderColor: "black",
     // borderWidth: 3,
-    width: "70%",
+    width: "65%",
     height: "100%",
   },
   loginCoverImage: {
@@ -63,7 +62,7 @@ const stylesheet = StyleSheet.create({
     alignContent: "left",
     flex: 1,
     flexDirection: "column",
-    width: "30%",
+    width: "35%",
   },
   loginScreenTitle: {
     fontSize: 20,

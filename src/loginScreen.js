@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  Switch
+  Switch, useWindowDimensions
 } from "react-native";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig";
@@ -16,13 +16,16 @@ import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "./authProvider";
 
 const LoginScreen = () => {
+  
+  /* States for Login */
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [rememberLogin, setRemeberLogin] = useState(false);
   const { setUser } = useContext(AuthContext);
-  
+
+  // Handler for login
   const handleLogin = async () => {
     if (email === "" || password === "") {
       return false;
@@ -41,12 +44,18 @@ const LoginScreen = () => {
     return true;
   };
 
+  const {height, width} = useWindowDimensions();
+  const [orientation, setOrientation] = useState(
+    height > width ? 'Potrait' : "Landscape"
+  );
+  
   return (
     <View style={stylesheet.loginScreenArea}>
+      {/* // User Input space */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={stylesheet.loginScreenCol}
-      >
+      > 
         <Text style={stylesheet.loginScreenTitle}>Login to your account</Text>
         <View style={{ flexDirection: "row", padding: 10 }}>
           <Text style={{ marginRight: 5, marginBottom: 20, color: "grey" }}>
@@ -109,8 +118,13 @@ const LoginScreen = () => {
         </View>
       </KeyboardAvoidingView>
 
-      {/* Image Column */}
-      <View style={stylesheet.loginCover} id="login-screen-cover">
+      {/* Image Cover */}
+      <View 
+        style={{
+          ...stylesheet.loginCover, 
+          width: orientation === 'Potrait'? "0%" : "65%"
+        }} 
+        id="login-screen-cover">
         <Image
           source={require("../assets/imgs/login-cover.jpg")}
           style={stylesheet.loginCoverImage}
