@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Dimensions} from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const stylesheet = StyleSheet.create({
   dashboardBody: {
@@ -10,7 +10,7 @@ const stylesheet = StyleSheet.create({
     width: "30%",
   },
   dashboardContent: {
-    width: "70%"
+    width: "70%",
   },
   screenHeader: {
     padding: 50,
@@ -34,7 +34,7 @@ const stylesheet = StyleSheet.create({
     elevation: 5, // For Android shadow effect
     // width: "80%", // Full width for better usability
   },
-  
+
   loginButtonText: {
     color: "white",
     fontSize: 16,
@@ -49,7 +49,7 @@ const stylesheet = StyleSheet.create({
     height: "100%",
   },
   loginCoverImage: {
-    resizeMode:"cover"
+    resizeMode: "cover",
   },
   loginScreenArea: {
     alignItems: "center",
@@ -58,7 +58,7 @@ const stylesheet = StyleSheet.create({
     justifyContent: "center",
   },
   loginScreenCol: {
-    padding: 30, 
+    padding: 30,
     alignContent: "left",
     flex: 1,
     flexDirection: "column",
@@ -66,10 +66,10 @@ const stylesheet = StyleSheet.create({
   },
   loginScreenTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     margin: 10,
   },
-  
+
   textEntry: {
     borderColor: "#ccc",
     borderRadius: 5,
@@ -85,11 +85,11 @@ const stylesheet = StyleSheet.create({
     padding: 10,
   },
   fieldNameLabel: {
-    margin: 10, 
+    margin: 10,
     marginBottom: 3,
-    paddingLeft: 5, 
-    fontSize: 16, 
-    fontWeight: 'bold'
+    paddingLeft: 5,
+    fontSize: 16,
+    fontWeight: "bold",
   },
   inputContainer: {
     flexDirection: "row",
@@ -97,8 +97,7 @@ const stylesheet = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 5,
-    margin: 10, 
-
+    margin: 10,
   },
   input: {
     flex: 1,
@@ -108,17 +107,20 @@ const stylesheet = StyleSheet.create({
     padding: 10,
   },
   drawerSubtitles: {
-    margin: 10, color: 'grey'
+    margin: 10,
+    marginTop: 20,
+    color: "grey",
   },
   drawerItem: {
-    marginLeft: 10
+    marginLeft: 10,
   },
   drawerLogo: {
-            resizeMode: 'contain',
-            width: "80%",
-            alignSelf: 'left',
-            marginLeft: 10
-          }
+    resizeMode: "contain",
+    width: "80%",
+    alignSelf: "left",
+    marginLeft: 10,
+    marginTop: 10, 
+  },
 });
 
 export default stylesheet;

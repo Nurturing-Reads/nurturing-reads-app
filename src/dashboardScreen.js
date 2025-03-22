@@ -102,7 +102,7 @@ const DrawerLayout = (props) => {
         }}
       >
         <Text style={stylesheet.drawerSubtitles}>Class Management</Text>
-        <TouchableOpacity style={{ margin: 10 }}>
+        <TouchableOpacity style={{ margin: 20 }}>
           <Ionicons name="add" size={20} color="grey" />
         </TouchableOpacity>
       </View>
