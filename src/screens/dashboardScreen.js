@@ -12,8 +12,8 @@ import {
 import stylesheet from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { signOut } from "firebase/auth";
-import { auth } from "./firebaseConfig";
-import { AuthContext } from "./authProvider";
+import { auth } from "../misc/firebaseConfig";
+import { AuthContext } from "../misc/authProvider";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -21,64 +21,33 @@ import {
 } from "@react-navigation/drawer";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+// Create application drawer
 const DashboardDrawer = createDrawerNavigator();
 
-// Test Class List
-const ClassesList = [
-  {
-    classid: 1,
-    classname: "1A",
-    students: [
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-    ],
-  },
-  {
-    classid: 2,
-    classname: "1B",
-    students: [
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-    ],
-  },
-  {
-    classid: 3,
-    classname: "1C",
-    students: [
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-      { firstName: "John", lastName: "Chan", age: 10 },
-    ],
-  },
-];
-
-// Test for the mapping function
-const extractClassName = (classJson) => {
-  return classJson.classname;
-};
-// console.log(ClassesList.map(extractClassName))
-
 const DrawerLayout = (props) => {
+
+  // Initialize states for navigations and updates
   const { state, navigation } = props;
   const currentRoute = state.routeNames[state.index];
-  const [showAddClassModal, setShowAddClassModal] = useState(false);
+
   return (
+    // Drawer view container 
     <DrawerContentScrollView {...props}>
+      {/* Logo */}
       <Image
-        source={require("../assets/imgs/NR-logo.png")}
+        source={require("../../assets/imgs/NR-logo.png")}
         style={stylesheet.drawerLogo}
       />
+
+      {/* Dashboard */}
       <DrawerItem
         style={stylesheet.drawerItem}
         focused={currentRoute === "User Dashboard"}
         label="Dashboard"
         onPress={() => props.navigation.navigate("User Dashboard")}
       />
+
+      {/* Analytics Section */}
       <Text style={stylesheet.drawerSubtitles}>Analytics</Text>
       <DrawerItem
         style={stylesheet.drawerItem}
@@ -94,6 +63,7 @@ const DrawerLayout = (props) => {
         onPress={() => props.navigation.navigate("Child Wellbeing Management")}
       />
 
+      {/* Class Management Section */}
       <View
         style={{
           flex: 1,

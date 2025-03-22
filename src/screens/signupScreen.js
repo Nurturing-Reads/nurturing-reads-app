@@ -61,7 +61,7 @@ const SignupScreen = () => {
       </View>
       <View style={stylesheet.loginCover}>
         <Image
-          source={require("../assets/imgs/login-cover.jpg")}
+          source={require("../../assets/imgs/login-cover.jpg")}
           style={stylesheet.loginCoverImage}
         />
       </View>

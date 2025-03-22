@@ -7,13 +7,13 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  Switch, useWindowDimensions
+  Switch
 } from "react-native";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from "./firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../misc/firebaseConfig";
 import stylesheet from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
-import { AuthContext } from "./authProvider";
+import { AuthContext } from "../misc/authProvider";
 
 const LoginScreen = () => {
   
@@ -43,11 +43,6 @@ const LoginScreen = () => {
     }
     return true;
   };
-
-  const {height, width} = useWindowDimensions();
-  const [orientation, setOrientation] = useState(
-    height > width ? 'Potrait' : "Landscape"
-  );
   
   return (
     <View style={stylesheet.loginScreenArea}>
@@ -106,6 +101,8 @@ const LoginScreen = () => {
             onPress={() => {
               let loginSucess = handleLogin();
               if (loginSucess){
+                console.log(loginSucess);
+                console.log("Login Success");
                 navigation.navigate("Dashboard");
               } else {
                 setErrorMsg("Error for Logging in");
@@ -123,7 +120,7 @@ const LoginScreen = () => {
         style={stylesheet.loginCover} 
         id="login-screen-cover">
         <Image
-          source={require("../assets/imgs/login-cover.jpg")}
+          source={require("../../assets/imgs/login-cover.jpg")}
           style={stylesheet.loginCoverImage}
         />
       </View>
