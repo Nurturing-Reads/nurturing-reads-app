@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   Modal,
 } from "react-native";
-import stylesheet from "./misc/stylesheet";
+import stylesheet from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig";

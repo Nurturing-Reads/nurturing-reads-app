@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, Button, StyleSheet, SafeAreaView} from 'react-native';
-import stylesheet from './misc/stylesheet';
+import stylesheet from '../misc/stylesheet';
 
 const AddClassScreen = () => {
   return (

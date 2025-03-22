@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, SafeAreaView, Image } from "react-native";
-import stylesheet from "./misc/stylesheet";
-import FormField from "./components/FormField";
-import PasswordInput from "./components/PasswordInput";
+import stylesheet from "../misc/stylesheet";
+import FormField from "../components/FormField";
+import PasswordInput from "../components/PasswordInput";
 
 const SignupScreen = () => {
   const [displayName, setName] = useState("");

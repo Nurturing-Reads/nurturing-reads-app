@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig";
-import stylesheet from "./misc/stylesheet";
+import stylesheet from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "./authProvider";
 

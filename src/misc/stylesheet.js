@@ -116,9 +116,9 @@ const stylesheet = StyleSheet.create({
   },
   drawerLogo: {
     resizeMode: "contain",
-    width: "80%",
+    width: "60%",
     alignSelf: "left",
-    marginLeft: 10,
+    marginLeft: 15,
     marginTop: 10, 
   },
 });
