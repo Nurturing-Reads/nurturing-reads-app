@@ -121,6 +121,14 @@ const stylesheet = StyleSheet.create({
     marginLeft: 15,
     marginTop: 10, 
   },
+  logoutButton: {
+    marginRight: 10,
+    
+  },
+  logoutButtonText: {
+    fontSize: 15,
+    
+  }
 });
 
 export default stylesheet;

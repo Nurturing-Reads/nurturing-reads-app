@@ -101,8 +101,24 @@ const DashboardScreen = () => {
       initialRouteName="User Dashboard"
       screenOptions={{
         drawerType: "permanent",
+        headerTitle: "",
         headerShown: true,
+        headerStyle: {
+          height: 80,
+        },
         headerLeft: () => null,
+        headerRight: () => {
+          return (
+            <TouchableOpacity 
+              style={stylesheet.logoutButton} 
+              onPress={() => {
+                handleSignOut();
+                navigation.navigate("Profile")
+              }}>
+              <Text style={stylesheet.logoutButtonText}>Logout</Text>
+            </TouchableOpacity>
+          )
+        }
       }}
     >
       <DashboardDrawer.Screen
