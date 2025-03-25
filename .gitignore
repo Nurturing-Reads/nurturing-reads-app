@@ -34,3 +34,7 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+backend/backend_env
+*.sqlite3
+.ruff_cache/
