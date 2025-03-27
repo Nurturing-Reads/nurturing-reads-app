@@ -19,7 +19,7 @@ const stylesheet = StyleSheet.create({
     fontFamily: "PoppinsLight",
     fontSize: 30,
   },
-  loginButton: {
+  actionButton: {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#FFA500", // More vibrant orange
@@ -35,7 +35,7 @@ const stylesheet = StyleSheet.create({
     // width: "80%", // Full width for better usability
   },
 
-  loginButtonText: {
+  actionButtonText: {
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
@@ -127,8 +127,8 @@ const stylesheet = StyleSheet.create({
   },
   logoutButtonText: {
     fontSize: 15,
-    
   }
 });
+
 
 export default stylesheet;

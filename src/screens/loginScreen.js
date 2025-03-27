@@ -14,6 +14,7 @@ import { auth } from "../misc/firebaseConfig";
 import stylesheet from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../misc/authProvider";
+import ActionButton from "../components/ActionButton";
 
 const LoginScreen = () => {
   
@@ -28,21 +29,26 @@ const LoginScreen = () => {
   // Handler for login
   const handleLogin = async () => {
     if (email === "" || password === "") {
+      console.log("Empty Email/pasword");
+      setErrorMsg("Empty Email/pasword");
       return false;
     } else {
       try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         setUser(userCredential.user);
-        console.log(userCredential)
-        navigation.navigate('Dashboard');
+        console.log(userCredential);
       } catch (error) {
-        console.log(error);
-        console.log("Invalid Email or password. Try Again.")
+        console.log(error.message);
+        console.log('Login Unsuccessful');
+        setErrorMsg(error.message);
         return false;
       }
     }
+    console.log("Login Success")
+    navigation.navigate('Dashboard');
     return true;
   };
+
   
   return (
     <View style={stylesheet.loginScreenArea}>
@@ -96,23 +102,11 @@ const LoginScreen = () => {
             }}
             />
         </View>
-        <View style={{ margin: 10 }}>
-          <TouchableOpacity
-            onPress={() => {
-              let loginSucess = handleLogin();
-              if (loginSucess){
-                console.log(loginSucess);
-                console.log("Login Success");
-                navigation.navigate("Dashboard");
-              } else {
-                setErrorMsg("Error for Logging in");
-              }
-            }}
-            style={stylesheet.loginButton}
-          >
-            <Text style={stylesheet.loginButtonText}>Login</Text>
-          </TouchableOpacity>
-        </View>
+        
+        {/* Login Button */}
+        <ActionButton 
+          buttonLabel={"Login"}
+          handler={handleLogin}/>
       </KeyboardAvoidingView>
 
       {/* Image Cover */}

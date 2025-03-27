@@ -1,27 +1,50 @@
-import React, { useState } from "react";
-import { View, Text, SafeAreaView, Image } from "react-native";
+import React, { useState, useContext } from "react";
+import {
+  View,
+  Text,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import stylesheet from "../misc/stylesheet";
 import FormField from "../components/FormField";
 import PasswordInput from "../components/PasswordInput";
+import ActionButton from "../components/ActionButton";
+import { AuthContext } from "../misc/authProvider";
+import { emailRegex } from "../misc/emailRegex";
+import { signupHandler } from "../utils/signupHandler";
 
 const SignupScreen = () => {
+  const { signup } = useContext(AuthContext);
   const [displayName, setName] = useState("");
   const [signupEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
   const [pwdErrorMsg, setPwdErrorMsg] = useState("");
 
-  const passwordMatched = (pw1 = password, pw2=checkPassword) => {
-    if (pw1 === pw2){
-      setPwdErrorMsg("");
+  // Function for handling signup
+  const handleSignup = async () => {
+    const result = await signupHandler({
+      email: signupEmail,
+      password,
+      checkPassword,
+      displayName,
+      signup,
+    });
+
+    if (!result.success) {
+      console.log(result.error);
     } else {
-      setPwdErrorMsg("Inconssitent Password.")
+      console.log("User created");
     }
   };
 
   return (
     <View style={stylesheet.loginScreenArea}>
-      <View style={stylesheet.loginScreenCol}>
+      <KeyboardAvoidingView
+        style={stylesheet.loginScreenCol}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
         <Text style={stylesheet.loginScreenTitle}>Create your account</Text>
         {/* Name */}
         <FormField
@@ -44,7 +67,6 @@ const SignupScreen = () => {
           placeholder={"Password"}
           onChangeText={(newPwd) => {
             setPassword(newPwd);
-            passwordMatched();
           }}
         />
 
@@ -53,12 +75,11 @@ const SignupScreen = () => {
           placeholder={"Confirm Password"}
           onChangeText={(newPwd) => {
             setCheckPassword(newPwd);
-            passwordMatched();
           }}
         />
-        
-        
-      </View>
+        {/* Signup Button */}
+        <ActionButton buttonLabel={"Signup"} handler={handleSignup} />
+      </KeyboardAvoidingView>
       <View style={stylesheet.loginCover}>
         <Image
           source={require("../../assets/imgs/login-cover.jpg")}

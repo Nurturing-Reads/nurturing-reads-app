@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 
 export const AuthContext = createContext();
@@ -7,10 +7,18 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [name, setName] = useState(null)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
-      setUser(authUser);
+      if (authUser){
+        setUser(authUser);
+        setLoading(false);
+        setName(authUser.displayName)
+      } else {
+        setUser(null);
+        setName(null);
+      }
       setLoading(false);
     });
     return unsubscribe; // Cleanup subscription
@@ -21,17 +29,18 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
   
-  const signup = async (email, password, userName) => {
-    try{
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      setUser(userCredential.user);
-    } catch (error) {
-      throw error;
-    }
+  const signup = async (email, password, name) => {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userCredential.user, {
+      displayName: name,
+    });
+    return userCredential;
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, logout, loading }}>
+    <AuthContext.Provider value={
+      { user, setUser, logout, loading , signup, name, setName}
+      }>
       {children}
     </AuthContext.Provider>
   );
