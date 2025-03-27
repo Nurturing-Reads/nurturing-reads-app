@@ -29,4 +29,5 @@
 ## TODO
 1. give each student a unique ID
 2. store user password
-3. can `group` has multiple `teacher`?
+1. can `group` has multiple `teacher`?
+  - Yes, we can?
