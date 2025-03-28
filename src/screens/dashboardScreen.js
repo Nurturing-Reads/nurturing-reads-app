@@ -6,7 +6,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "../misc/firebaseConfig";
 import { AuthContext } from "../misc/authProvider";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
 import {Table} from "../components/Table";
 import { sampleData } from "../utils/sampleData";
 import { DrawerLayout } from "../components/DrawerLayout";

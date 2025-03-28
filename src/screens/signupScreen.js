@@ -77,7 +77,7 @@ const SignupScreen = () => {
             setCheckPassword(newPwd);
           }}
         />
-        <Text style={{ color: 'red', marginLeft: 10}}>{errMsg}</Text>
+        <Text style={{ color: "red", marginLeft: 10 }}>{errMsg}</Text>
         {/* Signup Button */}
         <ActionButton buttonLabel={"Signup"} handler={handleSignup} />
       </KeyboardAvoidingView>

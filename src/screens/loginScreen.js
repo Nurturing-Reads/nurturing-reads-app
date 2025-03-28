@@ -9,15 +9,13 @@ import {
   Platform,
   Switch
 } from "react-native";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../misc/firebaseConfig";
 import {stylesheet} from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../misc/authProvider";
 import ActionButton from "../components/ActionButton";
+import { loginHandler } from "../utils/loginHandler";
 
 const LoginScreen = () => {
-  
   /* States for Login */
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
@@ -26,30 +24,6 @@ const LoginScreen = () => {
   const [rememberLogin, setRemeberLogin] = useState(false);
   const { setUser } = useContext(AuthContext);
 
-  // Handler for login
-  const handleLogin = async () => {
-    if (email === "" || password === "") {
-      console.log("Empty Email/pasword");
-      setErrorMsg("Empty Email/pasword");
-      return false;
-    } else {
-      try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        setUser(userCredential.user);
-        console.log(userCredential);
-      } catch (error) {
-        console.log(error.message);
-        console.log('Login Unsuccessful');
-        setErrorMsg(error.message);
-        return false;
-      }
-    }
-    console.log("Login Success")
-    navigation.navigate('Dashboard');
-    return true;
-  };
-
-  
   return (
     <View style={stylesheet.loginScreenArea}>
       {/* // User Input space */}
@@ -92,6 +66,8 @@ const LoginScreen = () => {
             <Text style={{ color: "grey" }}>Forgot your password?</Text>
           </TouchableOpacity>
         </View>
+
+
         <View style={{margin: 10, justifyContent: 'space-between', flexDirection: 'row'}}>
           <Text style={{marginTop: 10, color: 'grey', fontSize: 15}}>Keep Me Logged In</Text>
           <Switch 
@@ -106,7 +82,7 @@ const LoginScreen = () => {
         {/* Login Button */}
         <ActionButton 
           buttonLabel={"Login"}
-          handler={handleLogin}/>
+          handler={() => loginHandler({ email, password, setErrorMsg, setUser, navigation })}/>
       </KeyboardAvoidingView>
 
       {/* Image Cover */}
