@@ -1,10 +1,10 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
 // Import Screens
 import DashboardScreen from "./dashboardScreen";
 import ProfileScreen from "./profileScreen";
-import DrawerScreen from "./drawerScreen";
 
 const Nav = createBottomTabNavigator();
 const AddClassScreen = () => {
@@ -27,10 +27,6 @@ const HomeScreen = () => {
         component={DashboardScreen}
         title="Dashboard"
       />
-      <Nav.Screen 
-        name="Drawer"
-        component={DrawerScreen}
-        title="Drawer Screen"/>
       <Nav.Screen 
         name="Add Class Screen"
         component={AddClassScreen}/>

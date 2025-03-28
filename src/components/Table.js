@@ -23,6 +23,7 @@ export const Table = ({ data }) => {
         <Text style={{ flex: 1, fontWeight: "bold" }}>Edit</Text>
       </View>
       <FlatList
+        scrollEnabled={false}
         data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}

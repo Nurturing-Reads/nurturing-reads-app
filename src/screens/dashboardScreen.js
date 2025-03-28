@@ -1,88 +1,19 @@
-import React, { useContext, useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-} from "react-native";
-import stylesheet from "../misc/stylesheet";
+import React, { useContext } from "react";
+import {View, Text, TouchableOpacity} from "react-native";
+import { stylesheet } from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { signOut } from "firebase/auth";
 import { auth } from "../misc/firebaseConfig";
 import { AuthContext } from "../misc/authProvider";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItem,
-} from "@react-navigation/drawer";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import {Table} from "../components/Table";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { sampleData } from "../utils/sampleData";
+import { DrawerLayout } from "../components/DrawerLayout";
+
 
 // Create application drawer
 const DashboardDrawer = createDrawerNavigator();
-
-// Sample Data for rendering
-const sampleData = [
-  {id: 1, studentName: "Wong Siu Ching", yearGroup: 1, gender: 'F'},
-  {id: 2, studentName: "Chris Chow", yearGroup: 1, gender: 'M'},
-  {id: 3, studentName: "Wu Ho Pui", yearGroup: 1, gender: 'F'},
-  {id: 4, studentName: "Chan Tai Man", yearGroup: 1, gender: 'M'}
-]
-const DrawerLayout = (props) => {
-  // Initialize states for navigations and updates
-  const { state, navigation } = props;
-  const currentRoute = state.routeNames[state.index];
-
-  return (
-    // Drawer view container
-    <DrawerContentScrollView {...props}>
-      {/* Logo */}
-      <Image
-        source={require("../../assets/imgs/NR-logo.png")}
-        style={stylesheet.drawerLogo}
-      />
-
-      {/* Dashboard */}
-      <DrawerItem
-        style={stylesheet.drawerItem}
-        focused={currentRoute === "User Dashboard"}
-        label="Dashboard"
-        onPress={() => props.navigation.navigate("User Dashboard")}
-      />
-
-      {/* Analytics Section */}
-      <Text style={stylesheet.drawerSubtitles}>Analytics</Text>
-      <DrawerItem
-        style={stylesheet.drawerItem}
-        focused={currentRoute === "Story Reading Utilization"}
-        label="Story Reading Utilization"
-        onPress={() => props.navigation.navigate("Story Reading Utilization")}
-      />
-
-      <DrawerItem
-        style={stylesheet.drawerItem}
-        focused={currentRoute === "Child Wellbeing Management"}
-        label="Child Wellbeing Management"
-        onPress={() => props.navigation.navigate("Child Wellbeing Management")}
-      />
-
-      {/* Class Management Section */}
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <Text style={stylesheet.drawerSubtitles}>Class Management</Text>
-        <TouchableOpacity style={{ margin: 20 }}>
-          <Ionicons name="add" size={20} color="grey" />
-        </TouchableOpacity>
-      </View>
-    </DrawerContentScrollView>
-  );
-};
 
 // Dashboard Screen
 const DashboardScreen = () => {
@@ -109,6 +40,7 @@ const DashboardScreen = () => {
         headerShown: true,
         headerStyle: {
           height: 80,
+          backgroundColor: 'transparent'
         },
         headerLeft: () => {
           return (
@@ -185,4 +117,5 @@ const ReadingUtilizationScreen = () => {
     </View>
   );
 };
+
 export default DashboardScreen;

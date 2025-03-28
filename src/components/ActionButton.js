@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, View } from "react-native";
-import stylesheet from "../misc/stylesheet";
+import {stylesheet} from "../misc/stylesheet";
 
 const ActionButton = ({buttonLabel, handler}) => {
   return (

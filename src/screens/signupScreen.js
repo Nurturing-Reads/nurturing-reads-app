@@ -11,7 +11,6 @@ import FormField from "../components/FormField";
 import PasswordInput from "../components/PasswordInput";
 import ActionButton from "../components/ActionButton";
 import { AuthContext } from "../misc/authProvider";
-import { emailRegex } from "../misc/emailRegex";
 import { signupHandler } from "../utils/signupHandler";
 
 const SignupScreen = () => {
@@ -20,7 +19,7 @@ const SignupScreen = () => {
   const [signupEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
-  const [pwdErrorMsg, setPwdErrorMsg] = useState("");
+  const [errMsg, setErrorMsg] = useState("");
 
   // Function for handling signup
   const handleSignup = async () => {
@@ -34,6 +33,7 @@ const SignupScreen = () => {
 
     if (!result.success) {
       console.log(result.error);
+      setErrorMsg(result.error);
     } else {
       console.log("User created");
     }
@@ -77,6 +77,7 @@ const SignupScreen = () => {
             setCheckPassword(newPwd);
           }}
         />
+        <Text style={{ color: 'red', marginLeft: 10}}>{errMsg}</Text>
         {/* Signup Button */}
         <ActionButton buttonLabel={"Signup"} handler={handleSignup} />
       </KeyboardAvoidingView>

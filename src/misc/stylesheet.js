@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 
-const stylesheet = StyleSheet.create({
+export const stylesheet = StyleSheet.create({
   dashboardBody: {
     flex: 1,
     flexDirection: "column",
@@ -129,6 +129,3 @@ const stylesheet = StyleSheet.create({
     fontSize: 15,
   }
 });
-
-
-export default stylesheet;
