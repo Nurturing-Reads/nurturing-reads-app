@@ -39,3 +39,5 @@ backend/backend_env
 *.sqlite3
 .ruff_cache/
 ios
+.DS_Store
+.vscode

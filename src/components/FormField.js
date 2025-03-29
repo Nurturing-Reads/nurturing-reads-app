@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, TextInput} from 'react-native';
-import stylesheet from "../misc/stylesheet";
+import {stylesheet} from "../misc/stylesheet";
 
 const FormField = ({fieldName, hint = "", value, valueHandler, secureInput = false}) => {
   return (

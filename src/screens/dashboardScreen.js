@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {View, Text, TouchableOpacity} from "react-native";
 import { stylesheet } from "../misc/stylesheet";
 import { useNavigation } from "@react-navigation/native";
@@ -9,6 +9,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import {Table} from "../components/Table";
 import { sampleData } from "../utils/sampleData";
 import { DrawerLayout } from "../components/DrawerLayout";
+import AddStudentPopup from "./AddStudentPopup";
 
 
 // Create application drawer
@@ -17,6 +18,7 @@ const DashboardDrawer = createDrawerNavigator();
 // Dashboard Screen
 const DashboardScreen = () => {
   const { user, logout, name } = useContext(AuthContext);
+  
   const navigation = useNavigation();
 
   const handleSignOut = async () => {
@@ -82,6 +84,31 @@ const DashboardScreen = () => {
   );
 };
 
+
+// Screen placeholders
+const UserDashboardScreen = () => {
+  const [studentData, setStudentData] = useState(sampleData);
+  const [modalVisible, setModalVisible] = useState(false);
+  return (
+    <View style={{flex: 0.5, padding: 10}}>
+      <View style={{flex: 0.5, flexDirection: 'row', justifyContent: 'space-between', margin: 10}}>
+        <Text style={{flex: 1}}>Class List</Text>
+        <TouchableOpacity 
+          onPress={() => {
+            setModalVisible(true)
+          }}>
+          <Text>Add Student</Text>
+        </TouchableOpacity>
+        <AddStudentPopup 
+          controlVar={modalVisible}
+          setControlVar={setModalVisible}/>
+      </View>
+      <Table 
+        data={studentData}/>
+    </View>
+  );
+};
+
 const AddUserScreen = () => {
   return (
     <View>
@@ -89,18 +116,6 @@ const AddUserScreen = () => {
     </View>
   );
 };
-
-// Screen placeholders
-const UserDashboardScreen = () => {
-  return (
-    <View style={{flex: 1, padding: 10}}>
-      <Text style={{}}>Class List</Text>
-      <Table 
-        data={sampleData}/>
-    </View>
-  );
-};
-
 const WellbeingManagementScreen = () => {
   return (
     <View>
