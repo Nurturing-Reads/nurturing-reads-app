@@ -1,17 +1,29 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import Constants from 'expo-constants';
+
+const {
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_MESSAGING_SENDERID,
+  FIREBASE_APPID,
+  MEASUREMENT_ID,
+} = Constants.expoConfig.extra;
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCu2uCidNPWMKMi1pZW1ua-0HLOpybGUk8",
-  authDomain: "nurturing-reads-a1e35.firebaseapp.com",
-  projectId: "nurturing-reads-a1e35",
-  storageBucket: "nurturing-reads-a1e35.firebasestorage.app",
-  messagingSenderId: "249305553916",
-  appId: "1:249305553916:web:27cb00d798018e30f7f079"
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGING_SENDERID,
+  appId: FIREBASE_APPID,
 };
 
 // Initialize Firebase

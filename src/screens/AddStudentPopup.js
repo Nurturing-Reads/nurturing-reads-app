@@ -29,10 +29,6 @@ const AddStudentPopup = ({ controlVar, setControlVar, datalist}) => {
             backgroundColor: "white",
           }}
         >
-          <FormField 
-            fieldName="Student Name"
-            hint={"e.g. John Doe"}
-            value={} valueHandler={() => {}}/>          
           <Button title="close" onPress={() => setControlVar(false)} />
         </View>
       </View>

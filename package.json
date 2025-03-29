@@ -20,6 +20,7 @@
     "@react-navigation/native": "^7.0.15",
     "@react-navigation/native-stack": "^7.2.1",
     "expo": "~52.0.37",
+    "expo-constants": "^17.0.8",
     "expo-font": "~13.0.4",
     "expo-status-bar": "~2.0.1",
     "firebase": "^11.4.0",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@react-native-community/cli": "latest",
+    "dotenv": "^16.4.7",
     "jsdoc-to-markdown": "^9.1.1"
   },
   "private": true,
