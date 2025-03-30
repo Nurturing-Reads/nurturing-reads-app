@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import {View, Text, TouchableOpacity} from "react-native";
+import React, {useState} from "react";
+import {Text, TouchableOpacity, View} from "react-native";
 import {Table} from "../../components/Table";
-import { sampleData } from "../../utils/sampleData";
+import {sampleData} from "../../utils/sampleData";
 import AddStudentPopup from "../AddStudentPopup";
 
 // Screen placeholders
