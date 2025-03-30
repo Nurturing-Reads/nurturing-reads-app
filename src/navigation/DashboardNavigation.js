@@ -17,9 +17,7 @@ const Drawer = createDrawerNavigator();
 
 const DashboardNavigator = () => {
     const { user, logout, name } = useContext(AuthContext);
-
     const navigation = useNavigation();
-
     const handleSignOut = async () => {
         try {
             await signOut(auth);
