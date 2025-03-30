@@ -1,7 +1,7 @@
 import {Text, View} from "react-native";
 import React from "react";
 
-const ReadingUtilizationScreen = () => {
+export const ReadingUtilizationScreen = () => {
     return (
         <View>
             <Text>Story Reading Utilization</Text>
@@ -9,4 +9,3 @@ const ReadingUtilizationScreen = () => {
     );
 };
 
-export default ReadingUtilizationScreen;

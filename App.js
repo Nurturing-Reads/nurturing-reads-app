@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import HomeScreen from "./src/screens/homeScreen";
+import HomeNavigator from "./src/navigation/HomeNavigator";
 import { AuthProvider } from "./src/misc/authProvider";
 import './src/screens/gesture-handler';
 
@@ -11,7 +11,7 @@ export default function App() {
   return (
     <AuthProvider>
       <NavigationContainer>
-        <HomeScreen />
+        <HomeNavigator />
       </NavigationContainer>
     </AuthProvider>
   );

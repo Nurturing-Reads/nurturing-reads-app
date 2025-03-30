@@ -9,14 +9,13 @@ import {Text, TouchableOpacity, View} from "react-native";
 import {stylesheet} from "../misc/stylesheet";
 
 // Screens Import
-import UserDashboardScreen from "../screens/dashboard/UserDashboardScreen";
-import WellbeingManagementScreen from '../screens/dashboard/WellbeingManagementScreen';
-import ReadingUtilizationScreen from '../screens/dashboard/ReadingUtilizationScreen';
-
+import {UserDashboardScreen} from "../screens/dashboard/UserDashboardScreen";
+import {WellbeingManagementScreen} from "../screens/dashboard/WellbeingManagementScreen";
+import {ReadingUtilizationScreen} from '../screens/dashboard/ReadingUtilizationScreen';
 const Drawer = createDrawerNavigator();
 
 const DashboardNavigator = () => {
-    const { user, logout, name } = useContext(AuthContext);
+    const {user, logout, name} = useContext(AuthContext);
     const navigation = useNavigation();
     const handleSignOut = async () => {
         try {
@@ -26,6 +25,9 @@ const DashboardNavigator = () => {
             console.log("Cannot Sign out.");
         }
         console.log("Successfully signed out.");
+    };
+    const leftHeader = () => {
+        return;
     };
 
     return (

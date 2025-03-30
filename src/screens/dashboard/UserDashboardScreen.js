@@ -5,7 +5,7 @@ import {sampleData} from "../../utils/sampleData";
 import AddStudentPopup from "../AddStudentPopup";
 
 // Screen placeholders
-const UserDashboardScreen = () => {
+export const UserDashboardScreen = () => {
   const [studentData, setStudentData] = useState(sampleData);
   const [modalVisible, setModalVisible] = useState(false);
   return (
@@ -27,4 +27,3 @@ const UserDashboardScreen = () => {
     </View>
   );
 };
-export default UserDashboardScreen;

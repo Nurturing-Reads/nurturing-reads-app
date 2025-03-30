@@ -53,7 +53,7 @@ export const DrawerLayout = (props) => {
         <TouchableOpacity style={{ margin: 20 }}>
           <Ionicons name="add" size={20} color="grey" />
         </TouchableOpacity>
-      </View>Chat
+      </View>
     </DrawerContentScrollView>
   );
 };
