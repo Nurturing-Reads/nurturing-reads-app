@@ -6,7 +6,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import stylesheet from "../misc/stylesheet";
+import {stylesheet} from "../misc/stylesheet";
 import FormField from "../components/FormField";
 import PasswordInput from "../components/PasswordInput";
 import ActionButton from "../components/ActionButton";
@@ -79,7 +79,7 @@ const SignupScreen = () => {
         />
         <Text style={{ color: "red", marginLeft: 10 }}>{errMsg}</Text>
         {/* Signup Button */}
-        <ActionButton buttonLabel={"Signup"} handler={handleSignup} />
+        <ActionButton buttonLabel={"Signup"} handler={handleSignup}/>
       </KeyboardAvoidingView>
       <View style={stylesheet.loginCover}>
         <Image

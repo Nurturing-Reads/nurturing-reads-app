@@ -41,4 +41,6 @@ backend/backend_env
 ios
 .DS_Store
 .vscode
+*.env
+
 .env

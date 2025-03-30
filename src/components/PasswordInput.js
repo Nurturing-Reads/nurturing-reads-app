@@ -23,7 +23,7 @@
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity} from 'react-native';
 import {MaterialCommunityIcons} from 'react-native-vector-icons';
-import stylesheet from "../misc/stylesheet";
+import {stylesheet} from "../misc/stylesheet";
 
 const PasswordInput = ({ placeholder, value = null, onChangeText }) => {
   

@@ -13,8 +13,8 @@ const HomeNavigator = () => {
     <HomeTabNavigator.Navigator initialRouteName="Profile" screenOptions={{headerShown: false,}} >
       <HomeTabNavigator.Screen
         name="Profile"
+        title="Profile Screen" initialParams={{signedIn: true}}
         component={ProfileStackNavigator}
-        title="Profile Screen"
       />
       <HomeTabNavigator.Screen
         name="Dashboard"

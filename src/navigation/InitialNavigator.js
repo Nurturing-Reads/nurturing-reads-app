@@ -2,7 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import HomeNavigator from "./HomeNavigator";
 
-
+// Todos: Making a
 const InitStackNav = createNativeStackNavigator();
 
 const InitStack = () => {

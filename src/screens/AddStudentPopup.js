@@ -15,7 +15,7 @@ const AddStudentPopup = ({ controlVar, setControlVar, datalist}) => {
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "rgba(0,0,0,0.2)",
+          backgroundColor: "white",
         }}
       >
         <View
@@ -26,7 +26,7 @@ const AddStudentPopup = ({ controlVar, setControlVar, datalist}) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "white",
+            backgroundColor: "black",
           }}
         >
           <Button title="close" onPress={() => setControlVar(false)} />

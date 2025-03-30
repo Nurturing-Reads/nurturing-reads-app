@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, sendEmailVerification} from "firebase/auth";
 import { auth } from "./firebaseConfig";
 
 export const AuthContext = createContext();
@@ -34,13 +34,24 @@ export const AuthProvider = ({ children }) => {
     await updateProfile(userCredential.user, {
       displayName: name,
     });
+
+    if (userCredential.user && !userCredential.user.emailVerified) {
+      await sendEmailVerification(userCredential.user);
+      console.log("Verification Email Sent");
+    }
+
     return userCredential;
   };
 
+  const checkEmailVerification = async () => {
+    await auth.currentUser?.reload();
+    return auth.currentUser?.emailVerified;
+  }
+
   return (
-    <AuthContext.Provider value={
-      { user, setUser, logout, loading , signup, name, setName}
-      }>
+    <AuthContext.Provider
+        value={{ user, setUser, logout, loading , signup, name, setName, checkEmailVerification }}
+    >
       {children}
     </AuthContext.Provider>
   );
