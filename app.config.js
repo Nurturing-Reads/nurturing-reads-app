@@ -3,6 +3,10 @@ export default {
     name: "nurturing-reads-app",
     slug: "nurturing-reads-app",
     version: "1.0.0",
+    owner: "chitlchow",
+    ios:{
+      bundleIdentifier: 'nurturing-reads-app'
+    },
     extra: {
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
       FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
@@ -11,6 +15,9 @@ export default {
       FIREBASE_MESSAGING_SENDERID: process.env.FIREBASE_MESSAGING_SENDERID,
       FIREBASE_APPID: process.env.FIREBASE_APPID,
       MEASUREMENT_ID: process.env.MEASUREMENT_ID,
+      eas: {
+        "projectId": "3dba9e43-d615-467a-a90b-9c013ab89d04"
+      }
     }
   }
 };

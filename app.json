@@ -12,6 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "owner": "chitlchow",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.chitlchow.nurturing-reads-app"
@@ -24,6 +25,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3dba9e43-d615-467a-a90b-9c013ab89d04"
+      }
     }
   }
 }

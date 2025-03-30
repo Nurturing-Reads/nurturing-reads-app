@@ -3,8 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
 // Import Screens
-import DashboardScreen from "./dashboardScreen";
-import ProfileScreen from "./profileScreen";
+import DashboardScreen from "./dashboard/UserDashboardScreen";
+import ProfileStackNavigator from "../navigation/ProfileStackNavigator";
 
 const Nav = createBottomTabNavigator();
 const AddClassScreen = () => {
@@ -19,7 +19,7 @@ const HomeScreen = () => {
     <Nav.Navigator initialRouteName="Profile" screenOptions={{headerShown: false,}} >
       <Nav.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileStackNavigator}
         title="Profile Screen"
       />
       <Nav.Screen

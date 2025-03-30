@@ -1,13 +1,13 @@
 import React from "react";
-import LoginScreen from "./loginScreen";
-import DashboardScreen from "./dashboardScreen";
+import LoginScreen from "../screens/loginScreen";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SignupScreen from "./signupScreen";
+import SignupScreen from "../screens/signupScreen";
+import DashboardNavigator from './DashboardNavigation';
 
 // Initialize Stack Navigator
 const Stack = createNativeStackNavigator();
 
-const ProfileScreen = ({ signedIn = false }) => {
+const ProfileStackNavigator = ({ signedIn = false }) => {
   const initialScreen = (signedIn)? 'Dashboard Screen': 'Login Screen';
   return (
     <Stack.Navigator 
@@ -19,15 +19,14 @@ const ProfileScreen = ({ signedIn = false }) => {
         />
       <Stack.Screen 
         name='Dashboard Screen' 
-        component={DashboardScreen} 
+        component={DashboardNavigator}
         />
       <Stack.Screen 
         name='Signup'
         component={SignupScreen}
         options={{headerShown: false}}
         />
-
     </Stack.Navigator>
   );
 };
-export default ProfileScreen;
+export default ProfileStackNavigator;
