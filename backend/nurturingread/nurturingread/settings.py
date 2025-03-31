@@ -10,11 +10,40 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+#get info for local setting for dev server
+local_file = os.path.join(BASE_DIR, 'backend.localsetting')
+
+if not os.path.isfile(local_file):
+	print("setting file not found, using default")
+	database_dir = "G:\\reading-app\\database\\"
+	local_ip = "192.168.18.6"
+else:
+	with open(local_file, 'r') as f:
+		lines = f.readlines()
+		system_data_dir = lines[0].rstrip('\n')
+		database_dir = lines[1].rstrip('\n')
+		local_ip = lines[2].rstrip('\n')
+
+# path to system data files
+SYSTEM_FILE_PATH_FIELD_DIRECTORY = os.path.abspath(system_data_dir)
+
+
+# path to data files
+FILE_PATH_FIELD_DIRECTORY = os.path.abspath(database_dir)
+# ~ print(f"FILE_PATH_FIELD_DIRECTORY: {FILE_PATH_FIELD_DIRECTORY}")
+
+# Define the directory where uploaded media files will be stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Define the base URL to serve media files from
+MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -39,9 +68,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'user',
+    'books',
+    'reading_app',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +82,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
 
 ROOT_URLCONF = 'nurturingread.urls'
 

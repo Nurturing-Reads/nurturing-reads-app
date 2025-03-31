@@ -36,5 +36,12 @@ yarn-error.*
 *.tsbuildinfo
 
 backend/backend_env
+*/__pycache__
+*.pyc
 *.sqlite3
+backend/nurturingread/media
 .ruff_cache/
+__pycache__/
+database*/
+backend.localsetting
+*/logs

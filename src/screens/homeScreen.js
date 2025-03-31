@@ -5,6 +5,7 @@ import React from "react";
 import DashboardScreen from "./dashboardScreen";
 import ProfileScreen from "./profileScreen";
 import DrawerScreen from "./drawerScreen";
+import BookScreen from "./bookScreen";
 
 const Nav = createBottomTabNavigator();
 const AddClassScreen = () => {
@@ -34,6 +35,9 @@ const HomeScreen = () => {
       <Nav.Screen 
         name="Add Class Screen"
         component={AddClassScreen}/>
+      <Nav.Screen 
+        name="Reading"
+        component={BookScreen}/>
     </Nav.Navigator>
   );
 };
