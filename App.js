@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import HomeNavigator from "./src/navigation/HomeNavigator";
 import { AuthProvider } from "./src/misc/authProvider";
 import './src/screens/gesture-handler';
+import InitialNavigator from "./src/navigation/InitialNavigator";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -11,7 +12,7 @@ export default function App() {
   return (
     <AuthProvider>
       <NavigationContainer>
-        <HomeNavigator />
+        <InitialNavigator />
       </NavigationContainer>
     </AuthProvider>
   );
