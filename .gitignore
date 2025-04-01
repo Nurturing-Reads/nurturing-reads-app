@@ -38,9 +38,17 @@ yarn-error.*
 backend/backend_env
 *.sqlite3
 .ruff_cache/
+<<<<<<< Updated upstream
 ios
 .DS_Store
 .vscode
 *.env
 
 .env
+=======
+__pycache__/
+database*/
+backend.localsetting
+*/logs
+.idea
+>>>>>>> Stashed changes
