@@ -50,5 +50,10 @@ __pycache__/
 database*/
 backend.localsetting
 */logs
+<<<<<<< Updated upstream
 .idea
 >>>>>>> Stashed changes
+=======
+.idea
+>>>>>>> Stashed changes
+.env
