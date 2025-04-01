@@ -45,3 +45,4 @@ __pycache__/
 database*/
 backend.localsetting
 */logs
+/.idea
