@@ -7,8 +7,11 @@
 3. creating the virtual environment `python -m venv backend_env`
 4. activate the virtual environment `backend_env` (the exact command is OS dependent)
 5. install dependencies with requirement.txt `pip install -r requirements.txt`
-6. `cd nurturingread`
-7. initialise database by running `python manage.py makemigrations` and `python manage.py migrate`. This should create `db.sqlite3`
+6. download "database_5.rar" and "database_system.rar" from our google drive, under APP development database folder. extract and place it somewhere (preferrably outside `backend`)
+6. `cd nurturingread` create file `backend.localsetting` with three lines: line 1 - path to system database. line 2 - path to book database. line 3 - local IP address
+7. in `nurturingread` folder, 
+7. initialise database by running `restart_databse`. This should create `db.sqlite3` and a media folder. Note that the script is developed for windows, you might need to change it for your OS. and when you initially setup the environment, you will see errors, this is normal because it tries to clean-up files that not yet generated.
+8. if necessary, update gitignore to exclude database folders, env folders and `backend.localsetting`
 
 ## to start backend server
 1. activate virtual environment `backend_env`
@@ -16,9 +19,8 @@
 
 ## to remove all existing entries and restart with clean database
 1. stop any running server
-2. delete `db.sqlite3`
-3. run `python manage.py makemigrations` and `python manage.py migrate`
-4. run `python manage.py runserver` to restart the server
+2. run `restart_databse` or equivalent command for your OS 
+3. run `python manage.py runserver` to restart the server
 
 ## Note:
 1. Using Django REST Framework to create API

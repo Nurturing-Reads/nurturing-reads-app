@@ -1,0 +1,115 @@
+.box {
+  height: 86px;
+  position: relative;
+  width: 450px;
+}
+
+.box .group {
+  height: 86px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 450px;
+}
+
+.box .img {
+  height: 24px;
+  left: 19px;
+  position: absolute;
+  top: 7px;
+  width: 27px;
+}
+
+.box .overlap {
+  height: 79px;
+  left: 369px;
+  position: absolute;
+  top: 7px;
+  width: 81px;
+}
+
+.box .ellipse {
+  height: 28px;
+  left: 15px;
+  position: absolute;
+  top: 0;
+  width: 31px;
+}
+
+.box .frame {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  height: 53px;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 26px;
+  width: 81px;
+}
+
+.box .text-wrapper {
+  color: #818181;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.box .div-wrapper {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  height: 53px;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 32px;
+  width: 91px;
+}
+
+.box .overlap-group {
+  height: 86px;
+  left: 129px;
+  position: absolute;
+  top: 0;
+  width: 89px;
+}
+
+.box .history-wrapper {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  height: 53px;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 33px;
+  width: 89px;
+}
+
+.box .iconly-light-outline {
+  background-image: url(./libary.svg);
+  background-size: 100% 100%;
+  height: 38px;
+  left: 16px;
+  position: absolute;
+  top: 0;
+  width: 43px;
+}
+
+.box .div {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  height: 53px;
+  left: 253px;
+  padding: 10px;
+  position: absolute;
+  top: 33px;
+  width: 76px;
+}
