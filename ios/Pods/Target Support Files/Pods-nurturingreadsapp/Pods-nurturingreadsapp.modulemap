@@ -1,6 +1,0 @@
-module Pods_nurturingreadsapp {
-  umbrella header "Pods-nurturingreadsapp-umbrella.h"
-
-  export *
-  module * { export * }
-}
