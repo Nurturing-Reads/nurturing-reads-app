@@ -44,18 +44,9 @@ backend/nurturingread/media
 <<<<<<< Updated upstream
 ios
 .vscode
-*.env
 
 .env
-=======
-=======
->>>>>>> story_reading
+
 __pycache__/
 database*/
-backend.localsetting
-*/logs
-<<<<<<< HEAD
-.idea
-=======
-/.idea
->>>>>>> story_reading
+.idea/
