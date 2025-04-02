@@ -50,3 +50,4 @@ ios
 __pycache__/
 database*/
 .idea/
+backend/nurturingread/backend.localsetting
