@@ -22,8 +22,11 @@
     "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "expo": "~52.0.37",
+    "expo-av": "^15.0.2",
     "expo-constants": "^17.0.8",
+    "expo-dev-client": "~5.0.15",
     "expo-font": "~13.0.4",
+    "expo-router": "^4.0.20",
     "expo-status-bar": "~2.0.1",
     "firebase": "^11.4.0",
     "force": "^0.0.3",
@@ -40,8 +43,7 @@
     "react-native-screens": "~4.4.0",
     "react-native-sound": "^0.11.2",
     "react-native-vector-icons": "^10.2.0",
-    "react-native-web": "^0.19.13",
-    "expo-dev-client": "~5.0.15"
+    "react-native-web": "^0.19.13"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

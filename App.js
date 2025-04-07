@@ -1,9 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import HomeNavigator from "./src/navigation/HomeNavigator";
-import { AuthProvider } from "./src/misc/authProvider";
-import './src/screens/gesture-handler';
-import InitialNavigator from "./src/navigation/InitialNavigator";
+import HomeNavigator from "./app/navigation/HomeNavigator";
+import { AuthProvider } from "./app/misc/authProvider";
+import './app/screens/gesture-handler';
+import InitialNavigator from "./app/navigation/InitialNavigator";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
