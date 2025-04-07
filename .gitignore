@@ -51,3 +51,4 @@ __pycache__/
 database*/
 .idea/
 backend/nurturingread/backend.localsetting
+backend/start_backend.sh
