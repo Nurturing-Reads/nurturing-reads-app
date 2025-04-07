@@ -47,7 +47,8 @@
     "@babel/core": "^7.25.2",
     "@react-native-community/cli": "latest",
     "dotenv": "^16.4.7",
-    "jsdoc-to-markdown": "^9.1.1"
+    "jsdoc-to-markdown": "^9.1.1",
+    "typescript": "^5.3.3"
   },
   "private": true,
   "expo": {
