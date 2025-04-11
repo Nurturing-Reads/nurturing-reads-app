@@ -1,18 +1,15 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import AudioControl from './AudioControl';
+import { useNavigation } from '@react-navigation/native';
+import { BrandLogoButton } from './BrandLogoButton';
 
 export default function Header({ to_booklist, audioUrl }) {
+  const nav = useNavigation();
   return (
     <View style={styles.navbar}>
       {/* Logo and Title */}
-      <View style={styles.brandContainer}>
-        <View style={styles.nurturingReads}>
-          <Image source={require('../images/logo_text_background.png')} style={styles.logo} />
-          <Text style={styles.nurturingReadsText}>NURTURING READS</Text>
-        </View>
-        <Image source={require('../images/book_icon.png')} style={styles.bookIcon} />
-      </View>
+      <BrandLogoButton />
 
       {/* Navigation Icons */}
       <View style={styles.navContainer}>
@@ -46,8 +43,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f9fa',
   },
   brandContainer: {
-    flexDirection: 'row',
-    alignItems: 'center', // Align items vertically
+    alignItems: 'left'
   },
   nurturingReads: {
     flexDirection: 'row',
@@ -69,9 +65,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   bookIcon: {
-    width: 45,
-    height: 45,
-    marginLeft: 10,
+    width: 300,
+    height: 50,
     resizeMode: 'contain',
   },
   navContainer: {
