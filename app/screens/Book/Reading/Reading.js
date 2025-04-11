@@ -1,52 +1,55 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+} from "react-native";
 
-
-export default function Reading( {img_url, content, controls} ) {
-
+export default function Reading({ img_url, content, controls }) {
   return (
-    <View style={[styles.background, { backgroundImage: `url('${img_url}')` }]}> 
+    <ImageBackground source={{ uri: img_url }} style={styles.background}>
       {controls.prev}
       <View style={styles.contentContainer}>
         <Text style={styles.text}>{content}</Text>
       </View>
       {controls.next}
-    </View>
+    </ImageBackground>
   );
 }
-
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top',
-    backgroundSize: 'contain',
-    height: '100vh',
+    justifyContent: "center",
+    alignItems: "center",
+    resizeMode: 'contain',
+    height: "100%"
   },
   contentContainer: {
-    position: 'absolute',
-    bottom: '20%',
+    
+    position: "absolute",
+    bottom: "20%",
     left: 0,
     right: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     paddingHorizontal: 100,
   },
   text: {
-    color: 'black',
-    backgroundColor: 'rgba(200, 200, 200, 0.80)',
+    color: "black",
+    backgroundColor: "rgba(200, 200, 200, 0.80)",
     fontSize: 40,
-    textAlign: 'center',
+    textAlign: "center",
     padding: 20,
     borderRadius: 10,
   },
   button: {
-    position: 'absolute',
-    height: '60%',
+    // position: "absolute",
+    height: "60%",
     width: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   leftButton: {
     left: 0,

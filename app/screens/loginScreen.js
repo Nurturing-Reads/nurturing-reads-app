@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../misc/authProvider";
 import ActionButton from "../components/ActionButton";
 import { loginHandler } from "../utils/loginHandler";
+import { BrandLogoButton } from "../components/BrandLogoButton";
 
 const LoginScreen = () => {
   /* States for Login */
@@ -31,6 +32,7 @@ const LoginScreen = () => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={stylesheet.loginScreenCol}
       > 
+        <BrandLogoButton />
         <Text style={stylesheet.loginScreenTitle}>Login to your account</Text>
         <View style={{ flexDirection: "row", padding: 10 }}>
           <Text style={{ marginRight: 5, marginBottom: 20, color: "grey" }}>

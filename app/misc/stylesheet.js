@@ -62,6 +62,7 @@ export const stylesheet = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     width: "35%",
+
   },
   loginScreenTitle: {
     fontSize: 20,
