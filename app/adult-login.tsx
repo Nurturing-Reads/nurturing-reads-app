@@ -1,47 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, Image, KeyboardAvoidingView, TouchableOpacity } from "react-native";
 import { TextInputField } from "@/components/TextField";
-import { useAuth } from "@/contexts/FirebaseAuthContext";
+import { useSession } from "@/contexts/AuthContext";
 import { router } from 'expo-router';
 
 export default function SignInScreen() {
   const [email, setEmail] = useState<string>("")
   const [pwd, setPwd] = useState<string>("");
-  const { signIn, isLoading } = useAuth();
-
-  // Login Handler
-  const loginHandler = async () => {
-    if (email === "" || pwd === "") {
-      console.log("Empty Email/Password");
-      return;
-    }
-    console.log("Signing in with:", email);
-
-    // Sign in logic
-    try {
-      // prevent multiple sign-in
-      if (isLoading) return;
-      // passing signing details
-      const signedInUser = await signIn(email, pwd);
-
-      // 
-      if (signedInUser) {
-        // redirect if successful
-        if (!signedInUser.uid) {
-          router.replace('/')
-        } else {
-          console.log("Signed in with email: ", signedInUser.email)
-        
-          router.replace('/(adult)');
-        }
-      } else {
-        console.warn("Sign-in failed: user is null");
-      }
-    } catch (error: any) {
-      console.error("Login error:", error.message);
-    }
-  };
-
+  const { signIn } = useSession();
+  
   return (
     <View style={[styles.container, { flexDirection: 'row' }]}>
       <KeyboardAvoidingView style={[styles.container, { flex: 0.3 }]}>
@@ -55,6 +22,7 @@ export default function SignInScreen() {
           }}
           hint="e.g. John.Doe@domain.com"
         />
+        
         <TextInputField
           fieldName="Password"
           value={pwd}
@@ -65,10 +33,16 @@ export default function SignInScreen() {
           hint="Password"
           enableSecureInput={true}
         />
+
+        {/* Login Button */}
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => {
-            loginHandler();
+            signIn();
+            setTimeout(() => {
+              signIn();
+              router.replace('/(adult)')
+            }, 1500);
           }}>
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>

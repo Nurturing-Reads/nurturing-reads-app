@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useAuth } from "@/contexts/FirebaseAuthContext";
+import { useSession } from "@/contexts/AuthContext";
 
 export default function () {
-  const {user, signOut} = useAuth();
+  const {session} = useSession();
   
   return (
     <View style={styles.container}>
       <Text>
-        Welcome, {user?.email}
+        Welcome, {session}
       </Text>
     </View>
   );

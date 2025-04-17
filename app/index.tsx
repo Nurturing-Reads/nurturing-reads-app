@@ -2,19 +2,8 @@ import React, { useEffect } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { router } from "expo-router";
 import { EntryButton } from "@/components/EntryButton";
-import { useAuth } from "@/contexts/FirebaseAuthContext";
 
 export default function Index() {
-  const {user, isLoading} = useAuth();
-  useEffect(()=> {
-    if (!isLoading && user) {
-      router.replace("/(adult)");
-      
-    }
-  }, [user, isLoading]);
-  if (isLoading || user) {
-    return null;
-  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Nurturing Reads</Text>

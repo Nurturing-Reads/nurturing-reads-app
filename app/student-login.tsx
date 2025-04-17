@@ -5,8 +5,6 @@ import { TextInputField } from "@/components/TextField";
 
 
 export default function SignInScreen (){
-  const [email, setEmail] = useState<String>("")
-  const [pwd, setPwd] = useState<String>("");
   
   return (
     <View style={[styles.container, {flexDirection: 'row'}]}>
